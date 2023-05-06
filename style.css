@@ -1,0 +1,153 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+input, button, textarea, select {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Header Styling */
+
+:root{
+  font-family: 'Noto Sans Mono', monospace;
+  --fs-400:1rem;
+  --font-color:#fff;
+
+  --max-width: 1000px;
+  --min-padding:0.5rem;
+
+}
+
+@media (width < 600px) {
+  :root{
+  --fs-400:0.75rem;
+
+  }
+}
+
+body{
+  background-color: #d8e9f0;
+  font-size: var(--fs-400);
+  color:var(--font-color);
+  
+}
+
+.title{
+  padding: 2rem;
+  text-align: center;
+  background-color: #33425b;
+  
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0 7px 10px #888;
+}
+
+.container{
+
+  width: min(var(--max-width),calc(100% - (2 * var(--min-padding))));
+  margin-inline: auto;
+
+}
+
+
+
+/* New Task */
+
+
+#new-task-input{
+ 
+  background-color: #fff;
+  color:#33425b;
+  padding: 1rem;
+  margin-inline: 2rem;
+  margin-block: 2rem;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+
+#new-task-input  label{
+  display: none;
+}
+
+.task-detail .task-input {
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.25rem;
+  border-bottom: #33425b 1px solid;
+  font-weight: bold;
+}
+.editable:empty::before{
+  content: attr(data-placeholder);
+  color:#33425baa
+}
+.task-detail .task-description{
+  width: 100%;
+  padding: 0.5rem 0.5rem 0.25rem;
+  border-bottom: #33425b 1px solid;
+  margin-bottom: 1rem;
+
+  }
+#category-dropdown{
+  width: 20ch;
+  border-radius: 5px;
+  margin-block-end: 1rem;
+}
+
+
+
+
+
+
+.new-category{
+  background-color: transparent;
+  border: #33425b 2px solid;
+  border-radius: 50%;
+  width: min-content;
+  aspect-ratio: 1;
+  transition: background-color 1s,border 0.75s,outline 0.75s ,rotate 1s;
+}
+.new-category[data-state="open"]{
+  border: #fff 2px solid;
+  background-color: #33425b;
+  outline: 1px solid #33425b;
+
+  color: #fff;
+  rotate: 450deg;
+
+}
+.category-detail{
+  position: relative;
+}
+.new-cat-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+  
+}
+.new-category[data-state="open"] + .new-cat-box{
+  display: block;
+}

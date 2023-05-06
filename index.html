@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List for Future</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://kit.fontawesome.com/daa6f974ad.js" crossorigin="anonymous"></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header class="title">
+    <h1>To Do List for things, I want to do but can't right now!</h1>
+  </header>
+  <main>
+    <div class="container">
+      <form id="new-task-input">
+        <div class="task-detail">
+          <div class="task-title">
+            <label for="task">Create New Task</label>
+            <div id="task-title" contenteditable="true" class="task-input editable" data-placeholder="Task Title" role="textbox" ></div>
+          </div>
+          <div class="task-description-detail">
+
+            <label for="task-description">Task Description</label>
+            <div id="task-description" contenteditable="true" class="task-description editable" data-placeholder="Task Description" role="textbox"></div>
+          </div>
+
+        </div>
+        <div class="category-detail">
+          <label for="category-dropdown">Choose Category</label>
+          <select name="category-dropdown" id="category-dropdown">
+            <option value="0" class="category-item">Default</option>
+          </select>
+          <button class="new-category" data-state="closed">
+            <i class="fa-solid fa-plus"></i>
+          </button>
+          <div class="new-cat-box">
+            <input type="text" name="new-cat" id="new-cat" maxlength="20">
+            <button class="new-cat-add">Add</button>
+          </div>
+        </div>
+        <div id="task-submit">
+          <button>Add Task</button>
+        </div>
+      </form>
+    </div>
+
+  </main>
+
+</body>
+
+
+</html>
