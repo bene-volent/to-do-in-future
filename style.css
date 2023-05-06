@@ -8,9 +8,7 @@
 * {
   margin: 0;
 }
-html, body {
-  height: 100%;
-}
+
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -34,16 +32,18 @@ p, h1, h2, h3, h4, h5, h6 {
 :root{
   font-family: 'Noto Sans Mono', monospace;
   --fs-400:1rem;
+  --fs-600:1.25rem;
   --font-color:#fff;
 
   --max-width: 1000px;
-  --min-padding:0.5rem;
+  --min-padding:3rem;
 
 }
 
 @media (width < 600px) {
   :root{
   --fs-400:0.75rem;
+  --fs-600:1rem;
 
   }
 }
@@ -52,7 +52,7 @@ body{
   background-color: #d8e9f0;
   font-size: var(--fs-400);
   color:var(--font-color);
-  
+  margin-bottom: 2rem;
 }
 
 .title{
@@ -82,7 +82,6 @@ body{
   background-color: #fff;
   color:#33425b;
   padding: 1rem;
-  margin-inline: 2rem;
   margin-block: 2rem;
   word-wrap: break-word;
   word-break: break-all;
@@ -150,4 +149,67 @@ body{
 }
 .new-category[data-state="open"] + .new-cat-box{
   display: block;
+}
+
+.tasks-table{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(450px,1fr));
+  gap: 1rem;
+  grid-template-rows: auto;
+}
+.task{
+  background-color: #fff;
+  color: #2d3a50;
+  padding: 0.5rem 1rem 0.5rem;
+}
+
+.task-heading{
+  display: grid;
+  grid-template-columns: 0.75fr 0.25fr;
+  
+  border-bottom: #33425b 1px solid;
+  
+
+}
+
+#task-pending[type="checkbox"]{
+  appearance: none; /* Hide the native checkbox */
+  background-color: white;
+  margin:0;
+  color:currentColor;
+  width: var(--fs-400);
+  height: var(--fs-400);
+  border: 0.2rem solid currentColor;
+  border-radius: 5px;
+  transform: translateY(-0.1rem);
+
+  display: grid;
+  place-content: center;
+}
+#task-pending[type='checkbox']::before{
+  content: '';
+  width:calc(var(--fs-400)/2);
+  height:calc(var(--fs-400)/2);
+
+  transform:scale(0);
+  transition: transform 120ms ease-in-out;
+  box-shadow: inset 1em 1em #33425b;
+}
+#task-pending[type='checkbox']:checked::before{
+  transform:scale(1);
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+#task-pending[type='checkbox']:focus{
+  outline:max(2px,0.1rem) solid currentColor;
+  outline-offset:max(2px,0.1rem) ;
+}
+.task-name{
+  font-size: var(--fs-600);
+}
+.task-desc,.task-date{
+  font-size: var(--fs-400);
+}
+.task-desc{
+  padding-top: 5px;
 }

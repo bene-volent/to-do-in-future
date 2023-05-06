@@ -11,19 +11,17 @@ String.prototype.toTitleCase = function () {
 
 let categories = ["Default"];
 
+let tasks = {};
 
-
-
-
-// function refreshCatOptions(){
-//     let categorySelector = document.querySelector('#category')
-//     categories.forEach((val,index)=>{
-//         let option = document.createElement("option")
-//         option.value = index+1;
-//         option.text = val
-//         categorySelector.add(option)
-//     })
-// }
+function refreshCatOptions(){
+    let categorySelector = document.querySelector('#category-dropdown')
+    categories.forEach((val,index)=>{
+        let option = document.createElement("option")
+        option.value = index+1;
+        option.text = val
+        categorySelector.add(option)
+    })
+}
 
 const newCategory = document.querySelector(".new-category");
 
@@ -63,10 +61,21 @@ document.querySelector(".new-cat-add").addEventListener("click", (e) => {
 
 document.querySelector("#task-submit").addEventListener("click", (e) => {
     e.preventDefault();
-    const title = document.getElementById("task-title").innerHTML;
+
+    const title = document.getElementById("task-title").innerHTML.toTitleCase();
+    if (title.length === 0) {
+        return;
+    }
     const description = document.getElementById("task-description").innerHTML;
     const categoryIndex =
         document.getElementById("category-dropdown").selectedIndex;
+
+    if (tasks[categories[categoryIndex]] === undefined) {
+        tasks[categories[categoryIndex]] = {};
+    }
+    if (tasks[categories[categoryIndex]][title] !== undefined) {
+        return;
+    }
     const currentdate = new Date();
     const currentDateTime =
         currentdate.getDate() +
@@ -78,4 +87,17 @@ document.querySelector("#task-submit").addEventListener("click", (e) => {
         currentdate.getHours() +
         ":" +
         currentdate.getMinutes();
+
+    tasks[categories[categoryIndex]][title] = {
+        description,
+        categoryIndex,
+        currentDateTime,
+    };
 });
+
+function readFromJSON(json) {
+    tasks = JSON.parse(json);
+    categories = Object.keys(tasks)
+    refreshCatOptions()
+    
+}
