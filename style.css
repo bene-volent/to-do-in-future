@@ -57,8 +57,8 @@ h6 {
 
 @media (width < 600px) {
     :root {
-        --fs-400: 10px;
-        --fs-600: 13px;
+        --fs-400: 12px;
+        --fs-600: 16px;
         --min-padding:1rem;
     }
 }
@@ -192,10 +192,7 @@ body {
 
 .tasks-table {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(calc(400px - 2 * var(--min-padding)), 1fr)
-    );
+    grid-template-columns: 1fr;
     gap: 1rem;
     grid-template-rows: auto;
 
@@ -264,7 +261,7 @@ body {
     outline-offset: max(2px, 0.1rem);
 }
 .task-name {
-    font-size: var(--fs-600);
+    font-size: var(--fs-400);
 }
 .task-desc,
 .task-date {
