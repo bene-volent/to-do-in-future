@@ -47,18 +47,19 @@ h6 {
 
 :root {
     font-family: "Noto Sans Mono", monospace;
-    --fs-400: 1rem;
-    --fs-600: 1.25rem;
+    --fs-400: 16px;
+    --fs-600: 20px;
     --font-color: #fff;
 
-    --max-width: 1000px;
+    --max-width: 900px;
     --min-padding: 3rem;
 }
 
 @media (width < 600px) {
     :root {
-        --fs-400: 0.75rem;
-        --fs-600: 1rem;
+        --fs-400: 10px;
+        --fs-600: 13px;
+        --min-padding:1rem;
     }
 }
 
@@ -70,6 +71,7 @@ body {
 }
 
 .title {
+    font-size: var(--fs-600);
     padding: 2rem;
     text-align: center;
     background-color: #33425b;
@@ -192,7 +194,7 @@ body {
     display: grid;
     grid-template-columns: repeat(
         auto-fit,
-        minmax(calc(430px - 2 * var(--min-padding)), 1fr)
+        minmax(calc(400px - 2 * var(--min-padding)), 1fr)
     );
     gap: 1rem;
     grid-template-rows: auto;
@@ -205,7 +207,7 @@ body {
 .task {
     background-color: #fff;
     color: #2d3a50;
-    padding: 0.5rem 1rem 0.5rem;
+    padding: 0.5rem 0.5rem 0.5rem;
     box-shadow: 0 1px 2px #111;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
