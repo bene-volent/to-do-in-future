@@ -45,6 +45,7 @@ document.querySelector(".new-cat-add").addEventListener("click", (e) => {
         newCategory.dataset.state === "close"
     ) {
         newCategory.dataset.state = "close";
+        document.querySelector("#new-cat").value = ''
         return;
     }
 
@@ -57,6 +58,7 @@ document.querySelector(".new-cat-add").addEventListener("click", (e) => {
 
     document.querySelector("#category-dropdown").add(option);
     newCategory.dataset.state = "close";
+    document.querySelector("#new-cat").value =''
 });
 
 document.querySelector("#task-submit").addEventListener("click", (e) => {
@@ -100,4 +102,19 @@ function readFromJSON(json) {
     categories = Object.keys(tasks)
     refreshCatOptions()
     
+}
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } 
+  });
 }
