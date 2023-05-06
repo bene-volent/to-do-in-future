@@ -192,14 +192,14 @@ body {
     display: grid;
     grid-template-columns: repeat(
         auto-fit,
-        minmax(calc(450px - 2 * var(--min-padding)), 1fr)
+        minmax(calc(430px - 2 * var(--min-padding)), 1fr)
     );
     gap: 1rem;
     grid-template-rows: auto;
 
     max-height: 0;
     transition: max-height 1000ms ease-in;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .task {

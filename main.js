@@ -117,3 +117,4 @@ for (i = 0; i < coll.length; i++) {
     } 
   });
 }
+alert(window.innerWidth)
