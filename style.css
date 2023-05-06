@@ -167,7 +167,7 @@ body {
 /* Task Display */
 
 .category-tab{
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .category-tab .category-name{
@@ -192,7 +192,7 @@ body {
     display: grid;
     grid-template-columns: repeat(
         auto-fit,
-        minmax(360px - 2 * var(--min-padding), 1fr)
+        minmax(calc(450px - 2 * var(--min-padding)), 1fr)
     );
     gap: 1rem;
     grid-template-rows: auto;
@@ -206,6 +206,9 @@ body {
     background-color: #fff;
     color: #2d3a50;
     padding: 0.5rem 1rem 0.5rem;
+    box-shadow: 0 1px 2px #111;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .task-heading {
@@ -229,6 +232,7 @@ body {
     appearance: none; /* Hide the native checkbox */
     background-color: white;
     margin: 0;
+    cursor: pointer;
     color: currentColor;
     width: var(--fs-600);
     height: var(--fs-600);
