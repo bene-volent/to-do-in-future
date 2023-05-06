@@ -1,5 +1,4 @@
 // Handy Functions
-
 String.prototype.toTitleCase = function () {
     return this.toLowerCase()
         .split(" ")
